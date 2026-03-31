@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Сохраните связь | Актуальные прокси Telegram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, 'Inter', 'Helvetica Neue', sans-serif;
+            padding: 2rem 1.5rem;
+            color: #eef2ff;
+            min-height: 100vh;
+        }
+
+        /* контейнер с максимальной шириной */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* главный заголовок с анимацией */
+        .warning-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .neon-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #FFD166, #FF6B6B, #4ECDC4);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 5s ease infinite;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .sub {
+            font-size: 1rem;
+            color: #9ca3cf;
+            border-top: 1px solid rgba(78, 205, 196, 0.3);
+            display: inline-block;
+            padding-top: 0.7rem;
+            margin-top: 0.5rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* карточка-предупреждение */
+        .alert-card {
+            background: rgba(25, 30, 48, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 1.4rem 2rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid #ffb347;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+            transition: all 0.2s;
+        }
+
+        .alert-card p {
+            font-size: 1.1rem;
+            line-height: 1.4;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .alert-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .badge {
+            background: #ff4d4d20;
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #ffb347;
+            border: 1px solid #ffb34760;
+        }
+
+        /* сетка ссылок */
+        .links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .proxy-card {
+            background: rgba(16, 20, 35, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 1.5rem;
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            overflow: hidden;
+        }
+
+        .proxy-card:hover {
+            background: rgba(28, 34, 58, 0.9);
+            border-color: #4ECDC4;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.5);
+        }
+
+        .card-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: #eef2ff;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .link-icon {
+            font-size: 1.7rem;
+            min-width: 44px;
+            text-align: center;
+        }
+
+        .link-info {
+            flex: 3;
+            min-width: 180px;
+        }
+
+        .link-url {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            word-break: break-all;
+            color: #b9c3f0;
+            letter-spacing: -0.2px;
+            background: #00000040;
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .link-note {
+            font-size: 0.7rem;
+            color: #8f9bb5;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #1f2a48;
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #a5f0e6;
+        }
+
+        .copy-btn {
+            background: rgba(78, 205, 196, 0.12);
+            border: 1px solid rgba(78, 205, 196, 0.5);
+            border-radius: 40px;
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #c0f5ef;
+            cursor: pointer;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
+        }
+
+        .copy-btn:hover {
+            background: #4ECDC4;
+            color: #0a0f1e;
+            border-color: #4ECDC4;
+        }
+
+        .copy-feedback {
+            font-size: 0.7rem;
+            margin-left: 8px;
+            color: #6ee7b7;
+        }
+
+        /* дополнительные ресурсы */
+        .extra-section {
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1.8rem;
+            padding: 1.4rem 1.8rem;
+            border: 1px solid #2d374b;
+        }
+
+        .extra-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .channels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .channel-link {
+            background: #1e293b;
+            padding: 8px 20px;
+            border-radius: 60px;
+            text-decoration: none;
+            color: #cbd5ff;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            border: 1px solid #334155;
+        }
+
+        .channel-link:hover {
+            background: #2d3a5e;
+            color: white;
+            border-color: #4ECDC4;
+        }
+
+        hr {
+            margin: 20px 0;
+            border-color: #2a334e;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            color: #5e6a8f;
+        }
+
+        @media (max-width: 680px) {
+            body {
+                padding: 1.2rem;
+            }
+            .neon-title {
+                font-size: 2.2rem;
+            }
+            .card-link {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .copy-btn {
+                align-self: flex-end;
+                margin-top: 6px;
+            }
+            .link-url {
+                font-size: 0.75rem;
+            }
+        }
+
+        .glow-text {
+            font-weight: 600;
+        }
+        button {
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+        .new-channel-highlight {
+            background: linear-gradient(95deg, #2a2f4e, #1e2a3a);
+            border: 1px solid #ffb347;
+            box-shadow: 0 0 6px rgba(255, 180, 71, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="warning-header">
+        <div class="neon-title">⚠️ НЕ ТЕРЯЙТЕ НАС ⚠️</div>
+        <div class="sub">Актуальные способы подключения • Обход блокировок и белых списков</div>
+    </div>
+
+    <div class="alert-card">
+        <p>
+            <span class="alert-icon">🛡️</span>
+            <span><strong>Важно:</strong> Сохраните страницу или добавьте в закладки. Регулярно обновляйте ссылки.
+            Многие прокси обходят белые списки и DPI. Работаем через MTProto, SOCKS5 и WebSocket-прокси.</span>
+            <span class="badge">#АнтиБлокировка</span>
+        </p>
+    </div>
+
+    <div class="links-grid" id="proxyListContainer">
+        <!-- Все ссылки будут динамически отрисованы через JS, чтобы удобно было копировать и поддерживать структуру -->
+    </div>
+
+    <!-- Дополнительные каналы и зеркала + добавленный телеграм канал https://t.me/nekxdproxies -->
+    <div class="extra-section">
+        <div class="extra-title">
+            <span>📡</span> Полезные ресурсы, каналы обновлений и прокси-агрегаторы
+        </div>
+        <div class="channels">
+            <a href="https://github.com/Flowseal/tg-ws-proxy" target="_blank" rel="noopener noreferrer" class="channel-link">GitHub tg-ws-proxy</a>
+            <a href="https://osmpqiwi.ru/Proxy.html" target="_blank" rel="noopener noreferrer" class="channel-link">OSMP QIWI Proxy</a>
+            <a href="https://mtpro.xyz/" target="_blank" rel="noopener noreferrer" class="channel-link">MTPro.xyz</a>
+            <a href="https://t.me/ProxyMTProto" target="_blank" rel="noopener noreferrer" class="channel-link">@ProxyMTProto</a>
+            <a href="https://t.me/mtpro_xyz" target="_blank" rel="noopener noreferrer" class="channel-link">@mtpro_xyz</a>
+            <!-- НОВЫЙ КАНАЛ по требованию -->
+            <a href="https://t.me/nekxdproxies" target="_blank" rel="noopener noreferrer" class="channel-link" style="background: #2c2f4f; border-color: #FFB347; font-weight: bold;">🔥 @nekxdproxies</a>
+        </div>
+        <hr>
+        <div style="font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center;">
+            <span>🔗 Все ссылки кликабельны — ведут в Telegram (или на ресурсы с прокси).</span>
+            <span style="font-family: monospace;">✚ Добавьте в избранное • Канал nekxdproxies — свежие прокси каждый день</span>
+        </div>
+    </div>
+    <footer>
+        ⚡ Прямые ссылки для Telegram: MTProto / SOCKS5 обходят ограничения. Сохраните страницу, чтобы всегда иметь доступ.
+        <br>📢 Подписывайтесь на обновления: <a href="https://t.me/nekxdproxies" target="_blank" style="color:#FFB347; text-decoration:none;">@nekxdproxies</a>
+    </footer>
+</div>
+
+<script>
+    // Исходный список всех прокси и служебных ссылок (в точности как в задании)
+    const proxyItems = [
+        { url: "https://t.me/proxy?server=pivo.shukafish.ru&port=5443&secret=ddf5199e949c0f23bc887581218ad8c1e6", note: "обходит белые списки", type: "MTProto" },
+        { url: "https://t.me/proxy?server=slark.shukafish.ru&port=443&secret=ddf5199e949c0f23bc887581218ad8c1e6", note: "обходит белые списки", type: "MTProto" },
+        { url: "https://t.me/proxy?server=146.185.209.253&port=443&secret=ddf5199e949c0f23bc887581218ad8c1e6", note: "обходит белые списки", type: "MTProto" },
+        { url: "https://t.me/proxy?server=37.139.43.149&port=443&secret=ddf5199e949c0f23bc887581218ad8c1e6", note: "обходит белые списки", type: "MTProto" },
+        { url: "https://t.me/proxy?server=tg.pepewtf.top&port=443&secret=eecb3c473c7bbea00855003ab715668c5074672e706570657774662e746f70", note: "MTProto с особым secret", type: "MTProto" },
+        { url: "https://t.me/socks?server=85.195.81.144&port=11070&user=zpDYFT&pass=ufngYz", note: "SOCKS5 прокси", type: "SOCKS5" },
+        { url: "https://github.com/Flowseal/tg-ws-proxy", note: "WebSocket прокси / инструкция", type: "GitHub" },
+        { url: "https://osmpqiwi.ru/Proxy.html", note: "альтернативные прокси-листы", type: "Web" },
+        { url: "https://mtpro.xyz/", note: "сервис MTProto прокси", type: "Сервис" },
+        { url: "https://t.me/proxy?server=proxydlyavseh.sbs&port=443&secret=2cf24dba5fb0a30e26e83b2ac5b9e29e", note: "MTProto прокси", type: "MTProto" },
+        { url: "https://t.me/proxy?server=43.250.53.22&port=443&secret=4fc30d1222972a04067e805a5134cb57", note: "MTProto IP", type: "MTProto" },
+        { url: "https://t.me/proxy?server=65.109.215.115&port=8443&secret=dd104462821249bd7ac519130220c25d09", note: "MTProto 8443 порт", type: "MTProto" },
+        { url: "https://t.me/socks?server=87.239.105.216&port=23785&user=FurkVPNbot&pass=FurkVPN&bot=@mtpro_xyz_bot&channel=@mtpro_xyz", note: "SOCKS5 от FurkVPN", type: "SOCKS5" },
+        { url: "https://t.me/socks?server=146.185.243.18&port=23785&user=FurkVPNbot&pass=FurkVPN&bot=@mtpro_xyz_bot&channel=@mtpro_xyz", note: "SOCKS5 резерв", type: "SOCKS5" },
+        { url: "https://t.me/proxy?server=wl.mtproto.online&port=443&secret=eedcaae509a2455bbfc6165f1708fd5c586d61782e7275&bot=@mtpro_xyz_bot&channel=@mtpro_xyz", note: "MTProto wl домен", type: "MTProto" },
+        { url: "https://t.me/proxy?server=wl.mtproto.online&port=443&secret=dddcaae509a2455bbfc6165f1708fd5c58&bot=@mtpro_xyz_bot&channel=@mtpro_xyz", note: "MTProto short secret", type: "MTProto" },
+        { url: "https://t.me/proxy?server=147.45.125.102&port=8443&secret=0ab9a7e5baf786ba3f5e9e054f83ec87", note: "MTProto", type: "MTProto" },
+        { url: "https://t.me/proxy?server=150.241.68.154&port=443&secret=dd4d29f785a167560b74aa4ca9c63254c2", note: "MTProto EU", type: "MTProto" },
+        { url: "https://t.me/proxy?server=185.107.74.128&port=10443&secret=ddb0c0d0def4ca6577bbb8fc7fd0b894", note: "MTProto high port", type: "MTProto" }
+    ];
+
+    // Функция для укорачивания отображения секретов/длинных ссылок, но полный url сохраняем
+    function formatUrlForDisplay(fullUrl) {
+        if (fullUrl.length > 68) {
+            let prefix = fullUrl.substring(0, 64);
+            return prefix + '…';
+        }
+        return fullUrl;
+    }
+
+    // функция копирования текста с уведомлением
+    async function copyToClipboard(text, buttonElement) {
+        try {
+            await navigator.clipboard.writeText(text);
+            const originalInner = buttonElement.innerHTML;
+            buttonElement.innerHTML = '✅ Скопировано!';
+            setTimeout(() => {
+                buttonElement.innerHTML = originalInner;
+            }, 1800);
+        } catch (err) {
+            console.error('Ошибка копирования:', err);
+            buttonElement.innerHTML = '❌ Ошибка';
+            setTimeout(() => {
+                buttonElement.innerHTML = '📋 Копировать ссылку';
+            }, 1200);
+        }
+    }
+
+    // рендерим карточки
+    function renderProxyList() {
+        const container = document.getElementById('proxyListContainer');
+        if (!container) return;
+
+        let html = '';
+        for (let item of proxyItems) {
+            const displayUrl = item.url;
+            const shortDisplay = formatUrlForDisplay(displayUrl);
+            let iconEmoji = '🔗';
+            if (item.type === 'MTProto') iconEmoji = '🚀';
+            else if (item.type === 'SOCKS5') iconEmoji = '🧦';
+            else if (item.type === 'GitHub') iconEmoji = '🐙';
+            else if (item.type === 'Сервис') iconEmoji = '🌐';
+            else iconEmoji = '📎';
+
+            let extraTag = '';
+            if (item.note && item.note.toLowerCase().includes('обходит')) {
+                extraTag = '<span class="tag">🚫 обход белых списков</span>';
+            } else if (item.type === 'SOCKS5') {
+                extraTag = '<span class="tag">🧅 SOCKS5</span>';
+            } else if (item.type === 'MTProto') {
+                extraTag = '<span class="tag">✨ MTProto</span>';
+            }
+
+            const isTelegramLink = item.url.startsWith('https://t.me/');
+            const copyText = item.url;
+
+            html += `
+                <div class="proxy-card">
+                    <div class="card-link">
+                        <div class="link-icon">${iconEmoji}</div>
+                        <div class="link-info">
+                            <div class="link-url" title="${escapeHtml(displayUrl)}">${escapeHtml(shortDisplay)}</div>
+                            <div class="link-note">
+                                <span>${escapeHtml(item.note)}</span>
+                                ${extraTag}
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="copy-btn" style="text-decoration: none; background: #2a3a60; border: none; padding: 6px 18px;">🔓 Открыть</a>
+                            <button class="copy-btn" data-clipboard="${escapeAttr(copyText)}">📋 Копировать ссылку</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        container.innerHTML = html;
+
+        const allCopyButtons = document.querySelectorAll('.copy-btn[data-clipboard]');
+        allCopyButtons.forEach(btn => {
+            const urlToCopy = btn.getAttribute('data-clipboard');
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                copyToClipboard(urlToCopy, btn);
+            });
+        });
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    function escapeAttr(str) {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    renderProxyList();
+
+    // добавим мета-теги и дополнительное выделение для нового канала в футере/шапке
+    const meta = document.createElement('meta');
+    meta.name = "description";
+    meta.content = "Список рабочих прокси для Telegram, обход белых списков, MTProto и SOCKS5. Канал @nekxdproxies — актуальные прокси каждый день!";
+    document.head.appendChild(meta);
+    
+    // создадим элемент для дополнительного уведомления о новом канале (ненавязчиво)
+    const extraNotify = document.createElement('div');
+    extraNotify.style.marginTop = "1rem";
+    extraNotify.style.marginBottom = "0.5rem";
+    extraNotify.style.textAlign = "center";
+    extraNotify.style.fontSize = "0.85rem";
+    extraNotify.style.background = "rgba(255, 179, 71, 0.1)";
+    extraNotify.style.padding = "8px 16px";
+    extraNotify.style.borderRadius = "60px";
+    extraNotify.style.width = "fit-content";
+    extraNotify.style.marginLeft = "auto";
+    extraNotify.style.marginRight = "auto";
+    extraNotify.style.backdropFilter = "blur(8px)";
+    extraNotify.innerHTML = '⭐️ НОВЫЙ ТЕЛЕГРАМ КАНАЛ С ПРОКСИ: <a href="https://t.me/nekxdproxies" target="_blank" style="color:#FFB347; font-weight:bold; text-decoration:underline;">@nekxdproxies</a> — ежедневные обновления!';
+    const containerDiv = document.querySelector('.container');
+    const alertCard = document.querySelector('.alert-card');
+    if (containerDiv && alertCard) {
+        alertCard.insertAdjacentElement('afterend', extraNotify);
+    }
+</script>
+</body>
+</html>
